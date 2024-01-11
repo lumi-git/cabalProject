@@ -3,8 +3,12 @@ module TodoLogics where
 readTodoList :: String -> IO String
 readTodoList filename = readFile filename
 
-addTodo :: String -> String -> IO ()
-addTodo todoId description = do
+addTodo :: String -> String -> String ->IO ()
+addTodo todoId description filePath = do
+
+    let content = todoId ++":" ++"\ndescription: " ++ description ++ "\n"
+
+    writeFile filePath content
     putStrLn ("Added todo: " ++ description)
 
 viewTodo :: IO ()
@@ -18,3 +22,5 @@ removeTodo todoId = do
 completeTodo :: String -> IO ()
 completeTodo todoId = do
     putStrLn ("Completed todo with ID: " ++ todoId)
+
+

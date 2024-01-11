@@ -3,16 +3,18 @@ module TodoLogics where
 readTodoList :: String -> IO String
 readTodoList filename = readFile filename
 
-addTodo :: String -> String
-addTodo todoUID = todoUID
+addTodo :: String -> String -> IO ()
+addTodo todoId description = do
+    putStrLn ("Added todo: " ++ description)
 
-viewTodo :: String -> String
-viewTodo todoUID = todoUID
+viewTodo :: IO ()
+viewTodo = do
+    putStrLn "Viewing todo list..."
 
-removeTodo :: String -> String
-removeTodo todoUID = todoUID
+removeTodo :: String -> IO ()
+removeTodo todoId = do
+    putStrLn ("Removed todo with ID: " ++ todoId)
 
-completeTodo :: String -> String
-completeTodo todoUID = todoUID
-
-
+completeTodo :: String -> IO ()
+completeTodo todoId = do
+    putStrLn ("Completed todo with ID: " ++ todoId)

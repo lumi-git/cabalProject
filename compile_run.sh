@@ -1,2 +1,0 @@
-ghc hello.hs
-./hello

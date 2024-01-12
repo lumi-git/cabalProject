@@ -1,14 +1,21 @@
 module TodoLogics where
 
+import FileManager
+
+import TodoType
+
+
+
 readTodoList :: String -> IO String
 readTodoList filename = readFile filename
 
 addTodo :: String -> String -> String ->IO ()
 addTodo todoId description filePath = do
 
-    let content = todoId ++":" ++"\ndescription: " ++ description ++ "\n"
+    -- create a todo object
+    let todo = Todo { todoId = todoId, todoDescription = description }
 
-    writeFile filePath content
+    addTodoToFile filePath todo
     putStrLn ("Added todo: " ++ description)
 
 viewTodo :: IO ()

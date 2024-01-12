@@ -5,7 +5,7 @@ import System.FilePath ((</>))
 import TodoType
 
 indent :: String -> String
-indent content= "\r\t"++ content
+indent content = "\r\t"++ content
 
 convertTodoToYml :: Todo -> String
 convertTodoToYml todo = "todoId: " 
@@ -35,6 +35,5 @@ ensureDataFile = do
 addTodoToFile :: FilePath -> Todo -> IO ()
 addTodoToFile filePath todo = do 
     let content = convertTodoToYml todo
-    
     appendFile filePath content
     print "todo written"

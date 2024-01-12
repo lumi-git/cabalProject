@@ -14,5 +14,3 @@ main = do
         ("remove":todoId:_)              -> removeTodo todoId
         ("complete":todoId:_)            -> completeTodo todoId
         _                                -> putStrLn "Unknown command or incorrect arguments"
-
-

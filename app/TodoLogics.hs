@@ -1,20 +1,16 @@
 module TodoLogics where
 
 import FileManager
-
 import TodoType
 
 
-
 readTodoList :: String -> IO String
-readTodoList filename = readFile filename
+readTodoList filename = do
+    readFile filename
 
 addTodo :: String -> String -> String ->IO ()
 addTodo todoId description filePath = do
-
-    -- create a todo object
     let todo = Todo { todoId = todoId, todoDescription = description }
-
     addTodoToFile filePath todo
     putStrLn ("Added todo: " ++ description)
 
@@ -29,4 +25,3 @@ removeTodo todoId = do
 completeTodo :: String -> IO ()
 completeTodo todoId = do
     putStrLn ("Completed todo with ID: " ++ todoId)
-

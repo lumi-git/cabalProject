@@ -23,4 +23,3 @@ completeTodo :: String -> IO ()
 completeTodo todoId = do
     putStrLn ("Completed todo with ID: " ++ todoId)
 
-
